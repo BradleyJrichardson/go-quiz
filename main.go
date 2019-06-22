@@ -1,21 +1,11 @@
 package main
 
-import (
-	"fmt"
-)
-
-// Sqrt ...
-func Sqrt(x float64) float64 {
-	z := 1.0
-
-	for i := 0; i < 100; i++ {
-		z -= (z*z - x) / (2 * z)
-		fmt.Println(z)
-	}
-
-	return z
-}
+import "flag"
 
 func main() {
-	fmt.Println(Sqrt(2))
+	csvFilename := flag.String("csv", "problems.csv", "a csv file in the format of 'question,answer'")
+	flag.Parse()
+	_ = csvFilename
 }
+
+// the flag package is a way of getting values from the user also allows the consumer of the binary to check the arguments passed after flag. lets them know what the project is about
